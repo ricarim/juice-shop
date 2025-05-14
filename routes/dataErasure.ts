@@ -64,6 +64,13 @@ router.post('/', async (req: Request<Record<string, unknown>, Record<string, unk
       deletionRequested: true
     })
 
+    const userId = loggedInUser.data.id
+    const email = loggedInUser.data.email
+
+    await SecurityAnswerModel.destroy({ where: { UserId: userId } })
+    await UserModel.destroy({ where: { id: userId } })
+
+
     res.clearCookie('token')
     if (req.body.layout) {
       const filePath: string = path.resolve(req.body.layout).toLowerCase()
