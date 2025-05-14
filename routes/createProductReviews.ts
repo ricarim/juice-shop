@@ -20,7 +20,7 @@ export function createProductReviews () {
 
     challengeUtils.solveIf(
       challenges.forgedReviewChallenge,
-      () => user.data.email !== req.body.author 
+      () => user.data.email !== req.body.author
     )
 
     try {

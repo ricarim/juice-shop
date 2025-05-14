@@ -69,7 +69,6 @@ router.post('/', async (req: Request<Record<string, unknown>, Record<string, unk
     await SecurityAnswerModel.destroy({ where: { UserId: userId } })
     await UserModel.destroy({ where: { id: userId } })
 
-
     res.clearCookie('token')
     if (req.body.layout) {
       const filePath: string = path.resolve(req.body.layout).toLowerCase()
