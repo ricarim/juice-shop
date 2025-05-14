@@ -34,7 +34,7 @@ export function login () {
     models.sequelize.query(
           'SELECT * FROM Users WHERE email = ? AND password = ? AND deletedAt IS NULL',
           {
-            replacements: [req.body.email || '', security.hash(req.body.password || '')],
+            replacements: [req.body.email ?? '', security.hash(req.body.password ?? '')],
             model: UserModel,
             plain: true
           }

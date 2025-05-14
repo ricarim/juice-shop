@@ -65,7 +65,6 @@ router.post('/', async (req: Request<Record<string, unknown>, Record<string, unk
     })
 
     const userId = loggedInUser.data.id
-    const email = loggedInUser.data.email
 
     await SecurityAnswerModel.destroy({ where: { UserId: userId } })
     await UserModel.destroy({ where: { id: userId } })
